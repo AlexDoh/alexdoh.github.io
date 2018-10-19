@@ -1,18 +1,34 @@
-<h1>Angular Gulp Boilerplate</h1>
+<h1>AngularJS sample</h1>
 
-<h2>{{ 'home.greeting' | translate }}</h2>
-
-<p>
-    {{ 'home.details' | translate }}
-    <a href="https://github.com/1oginov/Angular-Gulp-Boilerplate"
-       target="_blank">https://github.com/1oginov/Angular-Gulp-Boilerplate</a>
-</p>
-
-<p>
-    <button ng-click="vm.switchLanguage('en')">In English</button>
-    <button ng-click="vm.switchLanguage('ru')">По-русски</button>
-</p>
-
-<p>
-    <button ng-click="vm.showSampleConstant()">{{ 'home.button' | translate }}</button>
-</p>
+<div layout="row">
+  <md-input-container>
+    <label>Clients</label>
+    <md-select ng-change="$ctrl.changedClient()" ng-model="$ctrl.selectedClient"
+               md-selected-text="$ctrl.getSelectedText()">
+      <md-optgroup label="clients">
+        <md-option ng-repeat="client in $ctrl.clients" ng-value="client">Client {{client.name}}</md-option>
+      </md-optgroup>
+    </md-select>
+  </md-input-container>
+  <md-input-container>
+    <label>Modules</label>
+    <md-select ng-model="$ctrl.modulesForClient" multiple>
+      <md-optgroup label="modules">
+        <md-option ng-value="module" ng-repeat="module in $ctrl.modules">{{module.name}}</md-option>
+      </md-optgroup>
+    </md-select>
+  </md-input-container>
+  <md-content>
+    <md-list flex>
+      <md-subheader class="md-no-sticky">Modules for clients</md-subheader>
+      <md-list-item class="md-3-line" ng-repeat="clientModule in $ctrl.clientModules">
+        <div class="md-list-item-text" layout="column">
+          <p>{{ clientModule.clientid + ' - ' + clientModule.moduleid }}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-content>
+  <md-button class="md-primary md-raised" ng-click="doSecondaryAction($event)">
+    Add permission
+  </md-button>
+</div>
