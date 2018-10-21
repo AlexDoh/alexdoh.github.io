@@ -1,7 +1,7 @@
 {
-  "name": "angular-gulp-boilerplate",
-  "version": "1.0.4",
-  "description": "Clean but full featured AngularJS boilerplate using Gulp workflow and best practices",
+  "name": "angularjs-sample",
+  "version": "1.0.0",
+  "description": "AngularJS Client-Module permissions example",
   "bin": "./cli.js",
   "scripts": {
     "build": "gulp default",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1oginov/Angular-Gulp-Boilerplate.git"
+    "url": "git+https://github.com/AlexDoh/alexdoh.github.io.git"
   },
   "keywords": [
     "angular",
@@ -45,12 +45,9 @@
     "ugify",
     "watch"
   ],
-  "author": "Danila Loginov <danila@loginov.rocks> (https://loginov.rocks)",
+  "author": "Oleksandr Dmytrenko",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/1oginov/Angular-Gulp-Boilerplate/issues"
-  },
-  "homepage": "https://github.com/1oginov/Angular-Gulp-Boilerplate",
+  "homepage": "https://github.com/AlexDoh/alexdoh.github.io.git",
   "dependencies": {
     "git-clone": "^0.1.0"
   },
