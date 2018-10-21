@@ -1,34 +1,32 @@
-<h1>AngularJS sample</h1>
+<h1 class="header" ng-bind="$ctrl.HEADER"></h1>
 
-<div layout="row">
-  <md-input-container>
-    <label>Clients</label>
-    <md-select ng-change="$ctrl.changedClient()" ng-model="$ctrl.selectedClient"
-               md-selected-text="$ctrl.getSelectedText()">
-      <md-optgroup label="clients">
-        <md-option ng-repeat="client in $ctrl.clients" ng-value="client">Client {{client.name}}</md-option>
-      </md-optgroup>
-    </md-select>
-  </md-input-container>
-  <md-input-container>
-    <label>Modules</label>
-    <md-select ng-model="$ctrl.modulesForClient" multiple>
-      <md-optgroup label="modules">
-        <md-option ng-value="module" ng-repeat="module in $ctrl.modules">{{module.name}}</md-option>
-      </md-optgroup>
-    </md-select>
-  </md-input-container>
+<div class="permissions-container">
   <md-content>
-    <md-list flex>
-      <md-subheader class="md-no-sticky">Modules for clients</md-subheader>
-      <md-list-item class="md-3-line" ng-repeat="clientModule in $ctrl.clientModules">
+    <md-input-container>
+      <label>Clients</label>
+      <md-select ng-change="$ctrl.changedClient()" ng-model="$ctrl.selectedClient"
+                 md-selected-text="$ctrl.getSelectedClientText()">
+        <md-optgroup label="clients">
+          <md-option ng-repeat="client in $ctrl.clients" ng-value="client">Client {{client.name}}</md-option>
+        </md-optgroup>
+      </md-select>
+    </md-input-container>
+    <md-input-container>
+      <label>Modules</label>
+      <md-select ng-disabled="!$ctrl.selectedClient" ng-change="$ctrl.changedModule()" ng-model="$ctrl.modulesForClient"
+                 multiple>
+        <md-optgroup label="modules">
+          <md-option ng-value="module" ng-repeat="module in $ctrl.modules">{{module.name}}</md-option>
+        </md-optgroup>
+      </md-select>
+    </md-input-container>
+    <md-list flex class="permissions-container__list-permissions">
+      <md-subheader class="md-no-sticky" ng-bind="$ctrl.LIST_PERMISSIONS_HEADER"></md-subheader>
+      <md-list-item class="md-3-line" ng-repeat="permission in $ctrl.clientModulePermissions">
         <div class="md-list-item-text" layout="column">
-          <p>{{ clientModule.clientid + ' - ' + clientModule.moduleid }}</p>
+          <p ng-bind="$ctrl.getPermissionDescription(permission)"></p>
         </div>
       </md-list-item>
     </md-list>
   </md-content>
-  <md-button class="md-primary md-raised" ng-click="doSecondaryAction($event)">
-    Add permission
-  </md-button>
 </div>

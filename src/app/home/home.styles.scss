@@ -1,4 +1,19 @@
 home {
-  display: block;
-  text-align: center;
+  .header {
+    text-align: center;
+  }
+
+  .permissions-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    md-content {
+      overflow: hidden;
+    }
+
+    &__list-permissions {
+      text-align: center;
+    }
+  }
 }
