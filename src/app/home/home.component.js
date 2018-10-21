@@ -2,38 +2,20 @@
   'use strict';
 
   angular.module('app').component('home', {
-    controller: HomeController,
+    controller: [ 'homeDataService', HomeController ],
     controllerAs: '$ctrl',
     templateUrl: 'app/home/home.view.html',
   });
 
-  function HomeController() {
+  function HomeController(dataService) {
     this.HEADER = 'Client permissions for modules';
     this.LIST_PERMISSIONS_HEADER = 'Modules for clients';
-    this.clients = [
-      { id: 1, name: 'HSBC' },
-      { id: 2, name: 'Citibank' },
-      { id: 3, name: 'Wells' },
-    ];
 
-    this.modules = [
-      { id: 1, name: "Analytics", description: 'Analytics Module' },
-      { id: 2, name: "Reporting", description: 'Reporting Module' },
-      { id: 3, name: 'Downloads', description: 'Downloads Module' },
-      { id: 4, name: 'Home', description: 'Home Module' },
-    ];
-
-    this.clientModulePermissions = [
-      { clientid: 1, moduleid: 4 },
-      { clientid: 1, moduleid: 1 },
-      { clientid: 1, moduleid: 2 },
-      { clientid: 1, moduleid: 3 },
-      { clientid: 2, moduleid: 4 },
-      { clientid: 2, moduleid: 1 },
-      { clientid: 2, moduleid: 2 },
-      { clientid: 3, moduleid: 4 },
-      { clientid: 3, moduleid: 3 }
-    ];
+    this.$onInit = () => {
+      dataService.getClients().then(response => this.clients = response.data);
+      dataService.getModules().then(response => this.modules = response.data);
+      dataService.getPermissions().then(response => this.clientModulePermissions = response.data);
+    };
 
     this.getSelectedClientText = () => this.selectedClient ? this.selectedClient.name : 'Please select a client';
 

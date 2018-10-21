@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "Analytics", "description": "Analytics Module" },
+  { "id": 2, "name": "Reporting", "description": "Reporting Module" },
+  { "id": 3, "name": "Downloads", "description": "Downloads Module" },
+  { "id": 4, "name": "Home", "description": "Home Module" }
+]

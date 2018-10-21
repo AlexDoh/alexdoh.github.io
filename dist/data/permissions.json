@@ -1,0 +1,11 @@
+[
+  { "clientid": 1, "moduleid": 4 },
+  { "clientid": 1, "moduleid": 1 },
+  { "clientid": 1, "moduleid": 2 },
+  { "clientid": 1, "moduleid": 3 },
+  { "clientid": 2, "moduleid": 4 },
+  { "clientid": 2, "moduleid": 1 },
+  { "clientid": 2, "moduleid": 2 },
+  { "clientid": 3, "moduleid": 4 },
+  { "clientid": 3, "moduleid": 3 }
+]
